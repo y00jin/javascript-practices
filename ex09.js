@@ -1,39 +1,31 @@
-var o = {
-	name: "둘리",
-	age: 10,
-	isFemale: false
-};
-
-var f = function(){
-	console.log("hello world");	
+var MyObject = function(name, age){
+	this.name = name;
+	this.age = age;
+}
+MyObject.prototype.school = "bit"
+MyObject.prototype.course = "douzone"
+MyObject.prototype.info = function(){
+	console.log(
+		this.name + ":" + 
+		this.age + ":" + 
+		this.school + ":" + 
+		this.course );
 }
 
-var i = 10;
-var n = new Number(10);
+// MyObject 객체 생성1
+var o1 = new MyObject("둘리", 10);
+o1.school = "multicampus";
+console.log(o1);
 
+//MyObject 객체 생성2
+var o2 = new MyObject("마이콜", 30);
+console.log(o2);
 
-f();
-console.log(o);
+// 테스트
+console.log(o1.school + ":" + o2.school);
 
-console.log("===========객체(object, fucntion) 확장================");
-
-o.another = {
-	name: "마이콜",
-	age: 30
-};
-console.log(o);
-
-f.another = {
-	name: "또치",
-	age:10,
-	info: function(){
-		console.log(this.name + ":" + this.age);
-	}
-};
-console.log(f.another);
-f.another.info();
-
-
-console.log("=============기본타입는 확장 X===============");
-i.another = {};
-console.log(i.another);
+//오버라이딩
+o2.info = function() {
+	console.log("비밀!");
+}
+o2.info();
