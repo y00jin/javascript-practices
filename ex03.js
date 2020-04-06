@@ -1,3 +1,4 @@
+// Null과 undefined에 대한 설명
 var myVar1;
 var myVar2 = null;
 
